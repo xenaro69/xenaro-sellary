@@ -1,15 +1,13 @@
-// Xenaro Sellary Webhook
-export default async function handler(req, res) {
-    if (req.method !== "POST") {
-        return res.status(405).json({ error: "Method not allowed" });
-    }
-
-    console.log("SELLARY WEBHOOK RECEIVED");
-    console.log("Headers:", req.headers);
-    console.log("Body:", req.body);
-
+export default function handler(req, res) {
+  if (req.method === "POST") {
     return res.status(200).json({
-        success: true,
-        message: "Webhook received"
+      success: true,
+      message: "Sellary webhook received"
     });
+  }
+
+  return res.status(200).json({
+    success: true,
+    message: "Xenaro Sellary API is working"
+  });
 }
